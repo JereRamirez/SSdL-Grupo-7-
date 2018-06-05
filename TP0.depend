@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1528171046 source:e:\sintaxis\tp0\main.c
+	<stdio.h>
+	<stdlib.h>
+	"scanner.h"
+
+1528170839 e:\sintaxis\tp0\scanner.h
+
