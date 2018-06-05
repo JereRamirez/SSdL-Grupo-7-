@@ -5,7 +5,7 @@
     - Aruquipa Mamani, Jhoselyn Sandra - 160.867-8
     - Demian
     - Jeremias
-    - Miguel
+    - Shevchuk Calo, Miguel Omar - 152.603-0
 
 */
 
