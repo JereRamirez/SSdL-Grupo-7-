@@ -4,7 +4,7 @@
     Integrantes:
     - Aruquipa Mamani, Jhoselyn Sandra - 160.867-8
     - Demian
-    - Jeremias
+    - Ramirez, Jeremias - 141941-9
     - Miguel
 
 */

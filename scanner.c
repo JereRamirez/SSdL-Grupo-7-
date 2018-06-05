@@ -8,3 +8,4 @@ while((lexema = fgetc(archivo)) != EOF){
         printf("%c", lexema);
     }
 }
+
