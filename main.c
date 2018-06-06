@@ -4,7 +4,7 @@
     Integrantes:
     - Aruquipa Mamani, Jhoselyn Sandra - 160.867-8
     - Demian
-    - Ramirez, Jeremias - 141941-9
+    - Ramirez, Jeremias - 141.941-9
     - Shevchuk Calo, Miguel Omar - 152.603-0
 */
 
