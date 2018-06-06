@@ -14,17 +14,48 @@
 
 int main()
 {
-    int constanteEntera = 0;
+    /*variables*/
+    FILE *archivo;
+    char resultado = 6;
+    int constEnt = 0;
     int identificadores = 0;
     int errores = 0;
-    char lexema;
-    int resultado = 0;
-    FILE *archivo;
+    /*variables*/
+    archivo = fopen("automata.dat", "r"); //abre el archivo
 
-    archivo = fopen("automata.dat","r");
+    if (archivo == NULL) //verifica que no este vacio
+    {
+        printf("No esta el archivo automata.dat");
+        return -1;
+    }
+    //bucle donde se ejecuta el automata
 
-    resultado = scanner(archivo);
-
-    fclose(archivo);
+    while (resultado != T_EOF)
+    {
+        resultado = scanner(archivo);
+        switch(resultado)
+        {
+        case T_NUMERO:
+            printf("constante entera\n");
+            constEnt++;
+            break;
+        case T_LETRA:
+            printf("identificador\n");
+            identificadores++;
+            break;
+        case T_ERROR:
+            printf("error\n");
+            errores++;
+            break;
+        }
+    }
+    /*imprime totales*/
+    printf("----------------------------------\n");
+    printf("Totales:\n");
+    printf("identificadores: %d \n", identificadores);
+    printf("constante entera: %d \n", constEnt);
+    printf("error: %d \n", errores);
+    /*imprime totales*/
+     fclose(archivo); //cierra el archivo
     return 0;
 }
