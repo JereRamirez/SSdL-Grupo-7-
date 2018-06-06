@@ -3,7 +3,7 @@
     Grupo: 07
     Integrantes:
     - Aruquipa Mamani, Jhoselyn Sandra - 160.867-8
-    - Demian
+    - Yamada, Demian - 152.711-3
     - Ramirez, Jeremias - 141.941-9
     - Shevchuk Calo, Miguel Omar - 152.603-0
 */
