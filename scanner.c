@@ -4,13 +4,13 @@
 #include "scanner.h"
 
 int tt[8][5] = {
-				{2,1,0,5,7 },
-                	{4,3,99,6,7 },
-				{2,2,4,5,4 },
-                	{99,99,99,99,99},
-				{99,99,99,99,99},
-                	{6,4,5,5,5 },
-				{99,99,99,99,99}
+		{2,1,0,5,7 },
+		{4,3,99,6,7 },
+		{2,2,4,5,4 },
+		{99,99,99,99,99},
+		{99,99,99,99,99},
+		{6,4,5,5,5 },
+		{99,99,99,99,99}
 };
 
 enum tipo {LETRA, NUMERO, ESPACIOS, ERROR, CEOF };  /*columnas*/
@@ -101,7 +101,7 @@ int debo_parar(int estado)
 /*auxiliares no necesarias pero hacen el codigo mas legible en español*/
 int esLetra(char l)
 {
-    return islower(l) && isupper(l);
+    return islower(l) || isupper(l);
 }
 int esNumero(char l)
 {
