@@ -14,18 +14,19 @@ int tt[9][5] = {
                     {99,99,99,99,99}
                 };
 
-char caracter; /* caracter que esta siendo escaneado*/
+enum token{T_LETRA, T_NUMERO,T_ESPACIOS,T_EOF,T_ERROR};
 enum tipo {LETRA, NUMERO, ESPACIOS, ERROR, CEOF };  /*columnas*/
 enum estado {ACEPTOR_LETRA = 4, ACEPTOR_NUMERO = 3,ESTADO_ERROR = 6, ESTADO_EOF= 7, CENTINELA = 99};
 
-char scanner(FILE *automata)
+int scanner(FILE *automata)
 {
+	char caracter;
     int estado = 0;
-    int token;
+    int token = T_ERROR;
     /*funcion scanner*/
     while (!debo_parar(estado))
     {
-        caracter = getc(automata);
+        caracter = getchar();
         estado = tt[estado][obtener_columna(caracter)];
     }
 
@@ -68,7 +69,7 @@ int obtener_columna (char caracter)
     {
         tipoCaracter = NUMERO;
     }
-    else if (esEspacio(caracter))
+    else if (esEspacio(caracter) || esVacio(caracter))
     {
         tipoCaracter = ESPACIOS;
     }
@@ -87,17 +88,22 @@ int obtener_columna (char caracter)
 /*aceptor */
 int debo_parar(int estado)
 {
-    if (estado == ACEPTOR_LETRA || estado == ACEPTOR_NUMERO || estado == ESTADO_EOF || estado == ESTADO_ERROR)
-        return 1;
-    else
-        return 0;
+    switch (estado)
+    {
+        case ACEPTOR_LETRA:
+        case ACEPTOR_NUMERO:
+        case ESTADO_EOF:
+        case ESTADO_ERROR:
+            return 1;
+    }
+    return 0;
 }
 /*aceptor */
 
 /*auxiliares no necesarias pero hacen el codigo mas legible en español*/
 int esLetra(char l)
 {
-    return islower(l);
+    return islower(l) && isupper(l);
 }
 int esNumero(char l)
 {
@@ -106,6 +112,10 @@ int esNumero(char l)
 int esEspacio(char l)
 {
     return isspace(l);
+}
+int esVacio(char l)
+{
+	return l == "";
 };
 /*auxiliares no necesarias pero hacen el codigo mas legible en español*/
 

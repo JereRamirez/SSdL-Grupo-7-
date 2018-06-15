@@ -10,7 +10,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "scanner.h"
+
+enum token{T_LETRA, T_NUMERO,T_ESPACIOS,T_EOF,T_ERROR};
 
 int main()
 {
@@ -21,7 +22,8 @@ int main()
     int identificadores = 0;
     int errores = 0;
     /*variables*/
-    archivo = fopen("automata.dat", "r"); //abre el archivo
+    archivo = freopen("automata.dat", "r", stdin);
+    //archivo = fopen("automata.dat", "r"); //abre el archivo
 
     if (archivo == NULL) //verifica que no este vacio
     {
