@@ -8,7 +8,7 @@ int esLetra(char l);
 int esNumero(char l);
 int esEspacio(char l);
 int obtener_columna (char caracter);
-int esVacio(char l);
+enum token{T_LETRA, T_NUMERO,T_ESPACIOS,T_EOF,T_ERROR};
 /*funciones*/
 #endif // SCANNER_H_INCLUDED
 

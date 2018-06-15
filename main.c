@@ -10,8 +10,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
-enum token{T_LETRA, T_NUMERO,T_ESPACIOS,T_EOF,T_ERROR};
+#include "scanner.h"
 
 int main()
 {
@@ -33,31 +32,32 @@ int main()
     //bucle donde se ejecuta el automata
 
     while (resultado != T_EOF)
-    {
-        resultado = scanner(archivo);
-        switch(resultado)
         {
-        case T_NUMERO:
-            printf("constante entera\n");
-            constEnt++;
-            break;
-        case T_LETRA:
-            printf("identificador\n");
-            identificadores++;
-            break;
-        case T_ERROR:
-            printf("error\n");
-            errores++;
-            break;
+            resultado = scanner(archivo);
+            switch(resultado)
+            {
+            case T_NUMERO:
+                printf("constante entera\n");
+                constEnt++;
+                break;
+            case T_LETRA:
+                printf("identificador\n");
+                identificadores++;
+                break;
+            case T_ERROR:
+                printf("error\n");
+                errores++;
+                break;
+            }
         }
-    }
-    /*imprime totales*/
-    printf("----------------------------------\n");
-    printf("Totales:\n");
-    printf("identificadores: %d \n", identificadores);
-    printf("constante entera: %d \n", constEnt);
-    printf("error: %d \n", errores);
-    /*imprime totales*/
-     fclose(archivo); //cierra el archivo
-    return 0;
+        /*imprime totales*/
+        printf("----------------------------------\n");
+        printf("Totales:\n");
+        printf("identificadores: %d \n", identificadores);
+        printf("constante entera: %d \n", constEnt);
+        printf("error: %d \n", errores);
+        /*imprime totales*/
+
+         fclose(archivo); //cierra el archivo
+        return 0;
 }

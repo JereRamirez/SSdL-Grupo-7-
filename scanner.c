@@ -3,18 +3,16 @@
 #include <ctype.h>
 #include "scanner.h"
 
-int tt[9][5] = {
-                    {2,1,0,5,7 },
-                    {5,1,3,5,3 },
-                    {2,2,4,5,4 },
-                    {99,99,99,99,99},
-                    {99,99,99,99,99},
-                    {6,6,6,5,6 },
-                    {99,99,99,99,99},
-                    {99,99,99,99,99}
-                };
+int tt[8][5] = {
+				{2,1,0,5,7 },
+                	{4,3,99,6,7 },
+				{2,2,4,5,4 },
+                	{99,99,99,99,99},
+				{99,99,99,99,99},
+                	{6,4,5,5,5 },
+				{99,99,99,99,99}
+};
 
-enum token{T_LETRA, T_NUMERO,T_ESPACIOS,T_EOF,T_ERROR};
 enum tipo {LETRA, NUMERO, ESPACIOS, ERROR, CEOF };  /*columnas*/
 enum estado {ACEPTOR_LETRA = 4, ACEPTOR_NUMERO = 3,ESTADO_ERROR = 6, ESTADO_EOF= 7, CENTINELA = 99};
 
@@ -69,7 +67,7 @@ int obtener_columna (char caracter)
     {
         tipoCaracter = NUMERO;
     }
-    else if (esEspacio(caracter) || esVacio(caracter))
+    else if (esEspacio(caracter))
     {
         tipoCaracter = ESPACIOS;
     }
@@ -113,10 +111,7 @@ int esEspacio(char l)
 {
     return isspace(l);
 }
-int esVacio(char l)
-{
-	return l == "";
-};
+
 /*auxiliares no necesarias pero hacen el codigo mas legible en español*/
 
 
