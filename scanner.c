@@ -4,17 +4,18 @@
 #include "scanner.h"
 
 int tt[8][5] = {
-		{2,1,0,5,7 },
-		{4,3,99,6,7 },
-		{2,2,4,5,4 },
+		{1,2,0,6,5},
+		{1,1,3,3,3},
+		{4,2,4,4,4},
 		{99,99,99,99,99},
 		{99,99,99,99,99},
-		{6,4,5,5,5 },
+		{99,99,99,99,99},
+		{7,7,7,6,7},
 		{99,99,99,99,99}
 };
 
 enum tipo {LETRA, NUMERO, ESPACIOS, ERROR, CEOF };  /*columnas*/
-enum estado {ACEPTOR_LETRA = 4, ACEPTOR_NUMERO = 3,ESTADO_ERROR = 6, ESTADO_EOF= 7, CENTINELA = 99};
+enum estado {ACEPTOR_LETRA = 3, ACEPTOR_NUMERO = 4,ESTADO_ERROR = 7, ESTADO_EOF= 5, CENTINELA = 99};
 
 int scanner(FILE *automata)
 {
@@ -28,7 +29,9 @@ int scanner(FILE *automata)
         estado = tt[estado][obtener_columna(caracter)];
     }
 
-    if (estado == CENTINELA || estado == ESTADO_ERROR)
+    int resultante = tt[estado][obtener_columna(caracter)];
+
+    if (resultante == CENTINELA)
     {
         ungetc(caracter, automata);
     }
